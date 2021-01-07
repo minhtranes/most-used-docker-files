@@ -1,0 +1,1 @@
+docker run --name pgadmin -e PGADMIN_DEFAULT_EMAIL=minh.tran@swisspost.com -e PGADMIN_DEFAULT_PASSWORD=pgadmin -v /data/pgadmin:/var/lib/pgadmin -p 8090:80 -d dpage/pgadmin4:4.27
