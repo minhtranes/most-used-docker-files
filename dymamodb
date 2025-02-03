@@ -1,0 +1,1 @@
+podman run --name dynamodb -p 8000:8000 -d amazon/dynamodb-local:2.5.4
