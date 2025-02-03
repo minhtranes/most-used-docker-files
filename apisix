@@ -1,0 +1,1 @@
+podman run -d --name apisix -p 9080:9080 -e APISIX_STAND_ALONE=true apache/apisix:3.11.0-debian
