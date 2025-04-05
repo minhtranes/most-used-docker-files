@@ -1,1 +1,1 @@
-podman network create --subnet 10.88.0.0/24 ps
+podman network create --subnet 10.10.15.0/24 ps
