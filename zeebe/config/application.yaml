@@ -1,0 +1,52 @@
+zeebe:
+  broker:
+    gateway:
+      enable: true
+      network:
+        port: 26500
+      security:
+        enabled: false
+    exporters:
+      debuglog:
+        className: io.camunda.zeebe.broker.exporter.debug.DebugLogExporter
+        args:
+          logLevel: debug
+          prettyPrint: false
+      elasticsearch:
+        className: io.camunda.zeebe.exporter.ElasticsearchExporter
+        args:
+          url: http://elasticsearch:9200
+          authentication:
+            username: elastic
+            password: elastic
+          bulk:
+            delay: 5
+            size: 1000
+            memoryLimit: 10485760
+          index:
+            prefix: zeebe-record-dev
+            createTemplate: true
+            numberOfShards: 1
+            numberOfReplicas: 0
+            command: false
+            event: true
+            rejection: true
+            deployment: true
+            error: true
+            incident: true
+            job: true
+            jobBatch: false
+            message: true
+            messageSubscription: false
+            variable: true
+            variableDocument: false
+            workflowInstance: true
+            workflowInstanceCreation: false
+            workflowInstanceSubscription: false
+            ignoreVariablesAbove: 32677
+management:
+  endpoints:
+    enabled-by-default: true
+    web:
+      exposure:
+        include: "*"
