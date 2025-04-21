@@ -1,7 +1,7 @@
 podman run --network=ps --name zeebe -e ZEEBE_BROKER_EXPORTERS_ELASTICSEARCH_CLASSNAME=io.camunda.zeebe.exporter.ElasticsearchExporter -e ZEEBE_BROKER_EXPORTERS_ELASTICSEARCH_ARGS_URL=http://10.88.0.1:9200 -e ZEEBE_BROKER_EXPORTERS_ELASTICSEARCH_ARGS_AUTHENTICATION_USERNAME=elastic -e ZEEBE_BROKER_EXPORTERS_ELASTICSEARCH_ARGS_AUTHENTICATION_PASSWORD=elasticsearch -e ZEEBE_BROKER_EXPORTERS_ELASTICSEARCH_ARGS_BULK_SIZE=1 -v /mnt/c/podman/zeebe/data:/usr/local/zeebe/data -p 26500:26500 -p 9600:9600 -p 8088:8080 -d camunda/zeebe:8.5.17
 
 
-podman run --network=ps --name operate -e CAMUNDA_OPERATE_ZEEBE_GATEWAYADDRESS=zeebe:26500 -e CAMUNDA_OPERATE_ELASTICSEARCH_URL=http://elasticsearch:9200 -e CAMUNDA_OPERATE_ZEEBEELASTICSEARCH_URL=http://elasticsearch:9200 -e CAMUNDA_OPERATE_CSRFPREVENTIONENABLED=false -p 8081:8080 -d camunda/operate:8.5.13
+podman run --network=ps --name operate -v /mnt/c/podman/operate/config/application.yaml:/usr/local/operate/config/application.yml -e CAMUNDA_OPERATE_CSRFPREVENTIONENABLED=false -p 8081:8080 -d camunda/operate:8.5.13
 
 
 podman run --network=ps --name zeebe -v /mnt/c/podman/zeebe/data:/usr/local/zeebe/data -v /mnt/c/podman/zeebe/config/application.yaml:/usr/local/zeebe/config/application.yaml -p 26500:26500 -p 9600:9600 -p 8088:8080 -d camunda/zeebe:8.5.17
