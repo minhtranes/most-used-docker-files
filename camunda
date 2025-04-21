@@ -4,4 +4,4 @@ podman run --network=ps --name zeebe -e ZEEBE_BROKER_EXPORTERS_ELASTICSEARCH_CLA
 podman run --network=ps --name operate -e CAMUNDA_OPERATE_ZEEBE_GATEWAYADDRESS=zeebe:26500 -e CAMUNDA_OPERATE_ELASTICSEARCH_URL=http://10.88.0.1:9200 -e CAMUNDA_OPERATE_ZEEBEELASTICSEARCH_URL=http://10.88.0.1:9200 -e CAMUNDA_OPERATE_CSRFPREVENTIONENABLED=false -p 8081:8080 -d camunda/operate:8.5.12
 
 
-podman run --network=ps --name zeebe -v /mnt/c/podman/zeebe/data:/usr/local/zeebe/data -v /mnt/c/podman/zeebe/config/application.yaml:/usr/local/zeebe/config/application.yaml -p 26500:26500 -p 9600:9600 -p 8088:8080 -d camunda/zeebe:8.1.8
+podman run --network=ps --name zeebe -v /mnt/c/podman/zeebe/data:/usr/local/zeebe/data -v /mnt/c/podman/zeebe/config/application.yaml:/usr/local/zeebe/config/application.yaml -p 26500:26500 -p 9600:9600 -p 8088:8080 -d camunda/zeebe:8.5.17
