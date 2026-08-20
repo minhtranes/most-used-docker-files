@@ -1,7 +1,7 @@
 # Configure podman
 
 ## Configure podman on Windows 11
-*** Switch to rootful mode***
+** Switch to rootful mode**
 To switch to root mode
 ```
 podman machine stop
